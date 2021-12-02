@@ -17,3 +17,15 @@ export interface IComment {
     author: string
     date: string
 }
+export interface IReservation {
+    _id:             string;
+    name:            string;
+    phone:           string;
+    numberOfPeople:  number;
+    smoking:         boolean;
+    dateTime:        string;
+    specialRequests: string;
+    createdAt:       Date;
+    updatedAt:       Date;
+}
+

@@ -1,13 +1,16 @@
 import ListGroup from 'react-bootstrap/ListGroup'
-import { IComment } from '../Interfaces'
+import { IComment, IPastaDish } from '../Interfaces'
 
-const DishComments = (props) => {
+interface IDrilledComment {
+    selectedDish : IPastaDish | undefined 
+}
+const DishComments = (props:IDrilledComment) => {
 
     return(
 
           <ListGroup>
     {props.selectedDish ? (
-      props.selectedDish.comments.map((c:IComment) => (
+     props.selectedDish.comments.map((c:IComment) => (
         <ListGroup.Item key={c.id}>{c.comment}</ListGroup.Item>
       ))
     ) : (

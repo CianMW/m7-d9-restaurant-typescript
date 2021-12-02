@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
     <BrowserRouter>
-      <MyNavbar brand='Strivestaurant' />
+      <MyNavbar brand="Strivestaurant" />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<h1>PROFILE PAGE</h1>} />

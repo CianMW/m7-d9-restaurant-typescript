@@ -2,15 +2,17 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link, useLocation } from 'react-router-dom'
 
-const TBrand = "string"
+interface TBrand { 
+    brand : string 
+}
 
-const MyNavbar = ({brand}: TBrand) => {
+const MyNavbar = (props: TBrand) => {
   const location = useLocation()
 
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
       <Link to='/'>
-        <Navbar.Brand>{brand}</Navbar.Brand>
+        <Navbar.Brand>{props.brand}</Navbar.Brand>
       </Link>
 
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />

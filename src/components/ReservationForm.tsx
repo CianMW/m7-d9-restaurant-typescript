@@ -12,14 +12,14 @@ const ReservationForm = () => {
     specialRequests: '',
   })
 
-  const handleInput = (fieldName: string, value:String) => {
+  const handleInput = (fieldName: string, value:String | boolean) => {
     setReservation({
       ...reservation,
       [fieldName]: value,
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     console.log(reservation)
     try {

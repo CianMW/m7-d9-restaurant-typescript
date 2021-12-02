@@ -11,8 +11,10 @@ const Menu = () => (
             <img src={pasta.image} alt='some pasta pic' />
           </Link>
           <h4>{pasta.name}</h4>
-          <Badge variant={'warning'}>{pasta.price}</Badge>
-          <Badge variant={'danger'}>{pasta.label}</Badge>
+          {/* <Badge variant="warning">{pasta.price}</Badge>
+          <Badge variant="danger">{pasta.label}</Badge> */}
+          <Badge>{pasta.price}</Badge>
+          <Badge>{pasta.label}</Badge>
         </Col>
       </Row>
     ))}

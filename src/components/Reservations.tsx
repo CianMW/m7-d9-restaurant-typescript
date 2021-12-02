@@ -1,5 +1,7 @@
+import { format, parseISO } from "date-fns"
 import { useEffect, useState } from "react"
 import { Alert, ListGroup, Spinner } from "react-bootstrap"
+import { IReservation } from "../Interfaces"
 
 
 
@@ -8,7 +10,7 @@ import { Alert, ListGroup, Spinner } from "react-bootstrap"
 
 
 const Reservations = () => {
-    const [reservations, setReservations] = useState([])
+    const [reservations, setReservations] = useState<IReservation[] >([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
   
@@ -18,12 +20,12 @@ const Reservations = () => {
   
     const fetchReservations = async () => {
       try {
-        let response = await fetch(
+        let response  = await fetch(
           'https://striveschool-api.herokuapp.com/api/reservation'
         )
   
         if (response.ok) {
-          let data = await response.json()
+          let data:IReservation[] = await response.json()
           setReservations(data)
           setIsLoading(false)
         } else {
@@ -41,10 +43,10 @@ const Reservations = () => {
         <h2 className='mt-4'>BOOKED TABLES</h2>
         {isLoading && <Spinner animation='border' variant='info' />}
         {isError ? (
-          <Alert variant='danger'>Something went wrong :(</Alert>
+          <Alert variant='danger'>Something went wrong :</Alert>
         ) : (
           <ListGroup className='mb-5'>
-            {reservations.map((res) => (
+            {reservations.length > 1 && reservations.map((res: IReservation) => (
               <ListGroup.Item key={res._id}>
                 {res.name} for {res.numberOfPeople} on{' '}
                 {format(parseISO(res.dateTime), 'EEEE, MMM. do - HH:mm')}
